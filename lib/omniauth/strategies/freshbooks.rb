@@ -3,8 +3,6 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
     class Freshbooks < OmniAuth::Strategies::OAuth2
-      API_VERSION = 'alpha'.freeze
-
       option :name, 'freshbooks'
 
       option :client_options, {
@@ -13,10 +11,7 @@ module OmniAuth
         token_url: 'https://api.freshbooks.com/auth/oauth/token'
       }
 
-      option :token_params, {
-        headers: { 'Api-Version' => API_VERSION }
-      }
-
+    
       uid { raw_info['id'] }
 
       info do
@@ -35,7 +30,7 @@ module OmniAuth
 
       def raw_info
         @raw_info ||= access_token
-                        .get('auth/api/v1/users/me', { headers: { 'Api-Version' => API_VERSION } })
+                        .get('auth/api/v1/users/me', { headers: {} })
                         .parsed['response']
       end
 

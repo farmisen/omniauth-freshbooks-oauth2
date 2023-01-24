@@ -19,9 +19,9 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency 'omniauth', '~> 1.2'
-  spec.add_runtime_dependency 'omniauth-oauth2', '~> 1.1'
+  spec.add_runtime_dependency 'omniauth', '~> 2.1.0'
+  spec.add_runtime_dependency 'omniauth-oauth2', '~> 1.7.3'
 
-  spec.add_development_dependency 'rake', '~> 11.3'
-  spec.add_development_dependency 'rspec', '~> 3.1'
+  spec.add_development_dependency 'rake', '~> 13.0'
+  spec.add_development_dependency 'rspec', '~> 3.12'
 end
